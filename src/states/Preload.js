@@ -24,7 +24,7 @@ export default class Preload {
     //do all your loading here
     this.load.image('enemy', 'assets/images/enemy.png');
     this.load.image('explosion', 'assets/images/explosion.png');
-    this.load.image('player', 'assets/images/gunbot.png', 214, 269);
+    this.load.image('player', 'assets/images/player.png', 214, 269);
     this.load.image('bullet', 'assets/images/bullet.png');
     this.load.image('enemyBullet', 'assets/images/enemyBullet.png');
     this.load.image('bg', 'assets/images/bg.jpg');

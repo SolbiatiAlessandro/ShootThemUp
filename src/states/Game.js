@@ -2,6 +2,7 @@
 
 import Player from "../prefabs/Player.js"
 import Enemy from "../prefabs/Enemy.js"
+import NumberBox from "../prefabs/NumberBox.js"
 
 export default class Game extends Phaser.State {
 
@@ -18,6 +19,10 @@ export default class Game extends Phaser.State {
 	  this.add.existing(player);
 	  var enemy = new Enemy(this, 200, 100, enemyBullets, 0);
 	  this.add.existing(enemy);
+	  var numberBox = new NumberBox(this, 'circle', 0);
+	  this.add.existing(numberBox);
+
+
   }
 
 
