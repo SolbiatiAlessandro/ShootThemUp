@@ -9,7 +9,7 @@ export default class Player extends Phaser.Sprite {
 		this.health = { current: 10, max: 10 };
 
 		this.cursors = this.game.input.keyboard.createCursorKeys();
-		//this.animations.add("fly", [0,0,1,1,2,2,3,4,5,6,7,8,9,10,10]);
+		this.animations.add("fly", [0,0,1,1,2,2,3,4,5,6,7,8,9,10,10]);
 		this._firingConstructor(bullets);
 		this._playFly();
 	}
@@ -26,12 +26,12 @@ export default class Player extends Phaser.Sprite {
 			Phaser.Keyboard.SPACEBAR
 		);
 		this.firePosition = { x: 160, y: 100 };
-		//this.fireAnimation = this.animations.add("fire", [11,12,13]);
-		//this.fireAnimation.onComplete.add(this._playFly, this);
+		this.fireAnimation = this.animations.add("fire", [11,12,13]);
+		this.fireAnimation.onComplete.add(this._playFly, this);
 	}
 
 	_playFly(){
-	//this.animations.play("fly", 14, true);
+	this.animations.play("fly", 14, true);
 	}
 
 	update(){

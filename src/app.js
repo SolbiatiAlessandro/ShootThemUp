@@ -7,7 +7,7 @@ import StartScreen from "./states/StartScreen.js";
 
 
 window.onload = function () {
-  game = new Phaser.Game(800, 600, Phaser.AUTO, 'game');
+  game = new Phaser.Game(window.innerWidth - 20, window.innerHeight - 20, Phaser.AUTO, 'game');
   game.state.add('boot', Boot);
   game.state.add('preload', Preload);
   game.state.add('game', Game);

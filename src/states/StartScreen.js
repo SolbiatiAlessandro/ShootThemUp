@@ -8,6 +8,7 @@ export default class StartScreen extends Phaser.State {
   }
 
   create() {
+	  this.add.text(this.game.width / 2, this.game.height / 2, "press space to start game", { font: "30px Arial", align: "center", fill: "#fff" });
   }
 
 

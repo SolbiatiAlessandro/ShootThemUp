@@ -2,7 +2,7 @@ export default class Enemy extends Phaser.Sprite {
 	constructor(game, x, y, bulletLayer, frame) {
 		super(game, x, y, 'enemy', frame);
 		this.game.physics.enable(this, Phaser.Physics.ARCADE);
-		this.body.velocity = -175;
+		this.body.velocity.x = -175;
 		this.bounceTick = Math.random() * 2;
 
 		this.bulletLayer = bulletLayer;
