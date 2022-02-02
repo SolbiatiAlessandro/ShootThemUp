@@ -1,7 +1,6 @@
 export default class Player extends Phaser.Sprite {
 	constructor(game, x, y, bullets) {
 		super(game, x, y, 'player', 0);
-		this.game = game;
 		this.speed = 100;
 		this.game.physics.enable(this, Phaser.Physics.ARCADE);
 		this.body.drag.x = 35;
