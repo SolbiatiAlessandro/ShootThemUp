@@ -31,7 +31,7 @@ export default class Player extends Phaser.Sprite {
 	}
 
 	_playFly(){
-	this.animations.play("fly", 14, true);
+		this.animations.play("fly", 14, true);
 	}
 
 	update(){

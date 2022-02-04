@@ -12,28 +12,22 @@ export default class Game extends Phaser.State {
     super();
   }
 
-  _setupUI(){
-	  this.UILayer = this.add.group();
-	  this.scoreField = new NumberBox(this, 'circle', 0);
-	  this.UILayer.add(this.scoreField);
-
-	  this.healthBar = new HealthBar(this, 120, 40);
-	  this.UILayer.add(this.healthBar);
-  }
-
   create() {
 	  this.spawnChance = 0.005;
 	  this.score = 0;
 
 	  this.game.physics.startSystem(Phaser.Physics.ARCADE);
 
-	  this.bg = this.add.tileSprite(0, 0, 1024, 768, 'bg')
+	  this.bg = this.add.tileSprite(0, 0, this.game.width, this.game.height, 'bg')
 
 
 	  this.bullets = this.add.group();
 	  this.enemyBullets = this.add.group();
-	  this.enemies = this.add.group();
 
+	  var player = new Player(this.game, 100, 100, this.bullets);
+	  this.add.existing(player);
+
+	  this.enemies = this.add.group();
 	  for(var i = 0; i < 5; i++){
 		  var enemy = new Enemy(
 			  this.game, 
@@ -41,7 +35,6 @@ export default class Game extends Phaser.State {
 			  Math.random() * this.game.height,
 			  this.enemyBullets
 		  );
-		  this.enemies.add(enemy)
 	  }
 
 	  this.explosions = this.game.add.emitter(0, 0, 200);
@@ -54,10 +47,17 @@ export default class Game extends Phaser.State {
 	  this.waveTimer.loop(20000, this.incrementWave, this);
 	  this.waveTimer.start();
 
-	  var player = new Player(this, 100, 100, this.bullets);
-	  this.add.existing(player);
-	  this.add.existing(this.enemies);
   }
+
+  _setupUI(){
+	  this.UILayer = this.add.group();
+	  this.scoreField = new NumberBox(this, 'circle', 0);
+	  this.UILayer.add(this.scoreField);
+
+	  this.healthBar = new HealthBar(this, 120, 40);
+	  this.UILayer.add(this.healthBar);
+  }
+
 
 
   update() {
